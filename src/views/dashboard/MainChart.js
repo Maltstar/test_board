@@ -22,18 +22,18 @@ export const data_main_charts = [
 export const data_widget_einkauf = data_main_charts.slice(4, -1)
 
 export const labels_main_charts = [
-  'January',
-  'February',
-  'March',
+  'Januar',
+  'Februar',
+  'März',
   'April',
   'May',
-  'June',
+  'Juni',
   'July',
   'August',
   'September',
   'Oktober',
   'November',
-  'December',
+  'Dezember',
 ]
 
 export const label_widget_einkauf = labels_main_charts.slice(4, -1)

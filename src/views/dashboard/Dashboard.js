@@ -184,16 +184,16 @@ const Dashboard = () => {
           <CRow>
             <CCol sm={5}>
               <h4 id="traffic" className="card-title mb-0">
-                Verkauf €
+                Total Verkauf €
               </h4>
-              <div className="small text-body-secondary">May - December 2024</div>
+              <div className="small text-body-secondary">April - Dezember 2024</div>
             </CCol>
             <CCol sm={7} className="d-none d-md-block">
               <CButton color="primary" className="float-end">
                 <CIcon icon={cilCloudDownload} />
               </CButton>
               <CButtonGroup className="float-end me-3">
-                {['Day', 'Month', 'Year'].map((value) => (
+                {['Tag', 'Monat', 'Jahr'].map((value) => (
                   <CButton
                     color="outline-secondary"
                     key={value}
