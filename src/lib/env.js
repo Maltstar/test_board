@@ -1,0 +1,3 @@
+export const proj_url = 'https://xlyocekrqfonxwtbeyys.supabase.co/'
+export const anon_key =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhseW9jZWtycWZvbnh3dGJleXlzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTc3OTY5MTEsImV4cCI6MjAzMzM3MjkxMX0.Jn94kNIne8Hla8AuczHi8ORV37XofnXcJgNJps6TqZA'
