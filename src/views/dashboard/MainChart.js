@@ -3,6 +3,41 @@ import React, { useEffect, useRef } from 'react'
 import { CChartLine } from '@coreui/react-chartjs'
 import { getStyle } from '@coreui/utils'
 
+const random = () => Math.round(Math.random() * 6200)
+export const data_main_charts = [
+  0,
+  0,
+  0,
+  0,
+  random(200, 2000),
+  random(500, 2000),
+  random(500, 2500),
+  random(1000, 2500),
+  random(1000, 3000),
+  random(2000, 4000),
+  random(3000, 5000),
+  6200,
+]
+
+export const data_widget_einkauf = data_main_charts.slice(4, -1)
+
+export const labels_main_charts = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'Oktober',
+  'November',
+  'December',
+]
+
+export const label_widget_einkauf = labels_main_charts.slice(4, -1)
+
 const MainChart = () => {
   const chartRef = useRef(null)
 
@@ -26,28 +61,13 @@ const MainChart = () => {
     })
   }, [chartRef])
 
-  const random = () => Math.round(Math.random() * 6200)
-
   return (
     <>
       <CChartLine
         ref={chartRef}
         style={{ height: '300px', marginTop: '40px' }}
         data={{
-          labels: [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'Oktober',
-            'November',
-            'December',
-          ],
+          labels: labels_main_charts,
           datasets: [
             {
               label: 'Total Verkauf',
@@ -74,8 +94,8 @@ const MainChart = () => {
                 tooltips: {
                   callbacks: {
                     label: (tooltipItems, data) => {
-                      console.log('tooltipItems',tooltipItems);
-                      console.log('data',data);
+                      console.log('tooltipItems', tooltipItems)
+                      console.log('data', data)
                       return (
                         data.datasets[tooltipItems.datasetIndex].data[tooltipItems.index] + ' €'
                       )

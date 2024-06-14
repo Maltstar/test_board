@@ -1,5 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
+import {
+  data_main_charts,
+  labels_main_charts,
+  data_widget_einkauf,
+  label_widget_einkauf,
+} from '../dashboard/MainChart'
 
 import {
   CRow,
@@ -140,7 +146,7 @@ const WidgetsDropdown = (props) => {
               </span>
             </>
           }
-          title="Einahme"
+          title="Einahme des Jahres"
           action={
             <CDropdown alignment="end">
               <CDropdownToggle color="transparent" caret={false} className="text-white p-0">
@@ -161,6 +167,7 @@ const WidgetsDropdown = (props) => {
               style={{ height: '70px' }}
               data={{
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                //labels: label_widget_einkauf,
                 datasets: [
                   {
                     label: 'My First dataset',
@@ -168,6 +175,7 @@ const WidgetsDropdown = (props) => {
                     borderColor: 'rgba(255,255,255,.55)',
                     pointBackgroundColor: getStyle('--cui-info'),
                     data: [1, 18, 9, 17, 34, 22, 11],
+                   // data: data_widget_einkauf,
                   },
                 ],
               }}
