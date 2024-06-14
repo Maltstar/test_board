@@ -22,7 +22,7 @@ const Info = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Verein Info</strong>
+            <h1>Verein Info</h1>
           </CCardHeader>
           <CCardBody>
             <p className="text-body-secondary small">{info_akkordeon}</p>

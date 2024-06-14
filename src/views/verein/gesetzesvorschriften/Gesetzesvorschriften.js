@@ -22,7 +22,7 @@ const Gesetzesvorschriften = () => {
       <CCol xs={12}>
         <CCard className="mb-4">
           <CCardHeader>
-            <strong>Gesetzesvorschriften des Cannabisgesetzes (CanG)</strong>
+            <h1>Gesetzesvorschriften des Cannabisgesetzes (CanG)</h1>
           </CCardHeader>
           <CCardBody>
             <p className="text-body-secondary small">
