@@ -4,6 +4,8 @@ import CIcon from '@coreui/icons-react'
 import tanstack from 'src/assets/images/logo/tanstack.png'
 import vercel from 'src/assets/images/logo/vercel.png'
 import coreui from 'src/assets/images/logo/coreui.png'
+import canverwalt2 from 'src/assets/images/logo/canverwalt2.png'
+import canverwalt from 'src/assets/brand/canverwalt/canverwalt.png'
 import { cilLeaf } from '@coreui/icons'
 
 
@@ -14,9 +16,11 @@ const AppFooter = () => {
     <CFooter className="px-4">
       <div>
        {/* <CIcon icon={cilMenu} size="lg" /> */}
-        <a href="https://coreui.io" target="_blank" rel="noopener noreferrer">
+       <CAvatar size="md" src={canverwalt2} />
+        {/* <a href="https://coreui.io" target="_blank" rel="noopener noreferrer">
           CanVerwalt
-        </a>
+        </a> */}
+        CanVerwalt
         <span className="ms-1">&copy; 2024 avantGardeLabs.</span>
       </div>
       <div className="ms-auto">
