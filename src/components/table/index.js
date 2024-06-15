@@ -27,7 +27,7 @@ export const Table = () => {
   const [validRows, setValidRows] = useState({});
 
   const rerender = React.useReducer(() => ({}), {})[1]
-  const [columnFilters, setColumnFilters] = React.useState(
+  const [columnFilters, setColumnFilters] = useState(
     []
   )
 
@@ -153,6 +153,14 @@ export const Table = () => {
             {'<'}
           </CButton>
       </CNavItem>
+
+      <span >
+          <div>Seite</div>
+          <strong>
+            {table.getState().pagination.pageIndex + 1} of{' '}
+            {table.getPageCount()}
+          </strong>
+        </span>
 
       <CNavItem>
         <CButton

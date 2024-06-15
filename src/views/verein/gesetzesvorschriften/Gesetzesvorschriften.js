@@ -28,7 +28,7 @@ const Gesetzesvorschriften = () => {
             <p className="text-body-secondary small">
               {info_akkordeon}
               <br></br><br></br>
-              Laut Abschnitt 6 '&quot' Behördliche Überwachung von Anbauvereinigungen '&quot' § 26 sollen einige
+              Laut Abschnitt 6 "Behördliche Überwachung von Anbauvereinigungen" § 26 sollen einige
               Informationen zur Behörde ermittelt werden, sieh,Abschnitt 6 Behördliche
               Überwachung von Anbauvereinigungen § 26 Dokumentations- und Berichtspflichten
               von Anbauvereinigungen in{' '}
