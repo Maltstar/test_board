@@ -1,22 +1,35 @@
 /* eslint-disable prettier/prettier */
-import React from 'react';
 import { useEffect, useState } from "react";
+import { CButton,CNav, CNavItem } from "@coreui/react";
 //import { Student } from "./types";
+//import "./table.css";
+import React from 'react';
 
 import {
   flexRender,
   getCoreRowModel,
+  getFacetedMinMaxValues,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import { columns } from "./columns";
-import  FooterCell from "./FooterCell";
+import  FooterCell  from "./FooterCell";
 import useStudents from "./useStudents";
 
 export const Table = () => {
-  const { data: originalData, isValidating, addRow, updateRow, deleteRow } = useStudents();
+ const {data: originalData, isValidating, addRow, updateRow, deleteRow } = useStudents();
   const [data, setData] = useState([]);
   const [editedRows, setEditedRows] = useState({});
   const [validRows, setValidRows] = useState({});
+
+  // const rerender = React.useReducer(() => ({}), {})[1]
+  // const [columnFilters, setColumnFilters] = useState(
+  //   []
+  // )
 
   useEffect(() => {
     if (isValidating) return;
@@ -27,6 +40,11 @@ export const Table = () => {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    initialState: {
+      pagination: {
+        pageIndex: 0, //custom initial page index
+        pageSize: 25, //custom default page size
+      }},
     enableRowSelection: true,
     meta: {
       editedRows,
@@ -116,10 +134,72 @@ export const Table = () => {
           <tr>
             <th colSpan={table.getCenterLeafColumns().length} align="right">
               <FooterCell table={table} />
+                   {/* UI table */}
+  <CNav variant="underline-border">
+      <CNavItem>
+          <CButton
+          onClick={() => table.firstPage()}
+          disabled={!table.getCanPreviousPage()}
+          >
+            {'<<'}
+          </CButton>
+      </CNavItem>
+    
+      <CNavItem>
+          <CButton
+            onClick={() => table.previousPage()}
+            disabled={!table.getCanPreviousPage()}
+          >
+            {'<'}
+          </CButton>
+      </CNavItem>
+
+      <span >
+          <div>Seite</div>
+          <strong>
+            {table.getState().pagination.pageIndex + 1} of{' '}
+            {table.getPageCount()}
+          </strong>
+        </span>
+
+      <CNavItem>
+        <CButton
+          onClick={() => table.nextPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {'>'}
+        </CButton>
+      </CNavItem>
+      
+      <CNavItem>
+        <CButton
+          onClick={() => table.lastPage()}
+          disabled={!table.getCanNextPage()}
+        >
+          {'>>'}
+        </CButton>
+      </CNavItem>
+      
+      <CNavItem>
+        <select
+          value={table.getState().pagination.pageSize}
+          onChange={e => {
+            table.setPageSize(Number(e.target.value))
+          }}
+        >
+          {[10, 20, 30, 40, 50].map(pageSize => (
+            <option key={pageSize} value={pageSize}>
+              {pageSize}
+            </option>
+          ))}
+          </select>
+      </CNavItem>
+  </CNav>
             </th>
           </tr>
         </tfoot>
       </table>
+ 
       {/* <pre>{JSON.stringify(data, null, "\t")}</pre> */}
     </article>
 

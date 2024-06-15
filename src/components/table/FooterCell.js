@@ -2,8 +2,7 @@
 import PropTypes from 'prop-types'
 import React from 'react';
 
-const FooterCell = (props) => {
-  const { table } = props
+export const FooterCell = ({ table }) => {
   const meta = table.options.meta;
   const selectedRows = table.getSelectedRowModel().rows;
 

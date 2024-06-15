@@ -1,17 +1,15 @@
 /* eslint-disable prettier/prettier */
+
 import { useState, useEffect, ChangeEvent } from "react";
 import React from "react";
 import PropTypes from 'prop-types'
-
-//import "./table.css";
 
 // type Option = {
 //   label: string;
 //   value: string;
 // };
 
-export const TableCell = (props) => {
-  const { getValue, row, column, table } = props
+export const TableCell = ({ getValue, row, column, table }) => {
   const initialValue = getValue();
   const columnMeta = column.columnDef.meta;
   const tableMeta = table.options.meta;
@@ -33,7 +31,7 @@ export const TableCell = (props) => {
     tableMeta?.updateData(row.index, column.id, e.target.value, e.target.validity.valid);
   };
 
-  const displayValidationMessage = (
+  const displayValidationMessage =(
     e
   ) => {
     if (columnMeta?.validate) {
@@ -80,7 +78,6 @@ export const TableCell = (props) => {
   }
   return <span>{value}</span>;
 };
-
 
 TableCell.propTypes = {
   getValue:PropTypes.func, 

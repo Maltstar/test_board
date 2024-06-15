@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import useSWR, { mutate } from 'swr';
+//import { Student } from './types';
 
 const url = 'http://localhost:5000/students';
 

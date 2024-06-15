@@ -1,11 +1,9 @@
 /* eslint-disable prettier/prettier */
-import { MouseEvent } from "react";
+//import { MouseEvent } from "react";
 import PropTypes from 'prop-types'
 import React from "react";
 
-
-const EditCell = (props) => {
-  const { row, table } = props
+export const EditCell = ({ row, table }) => {
   const meta = table.options.meta;
   const validRow = meta?.validRows[row.id];
   const disableSubmit = validRow ? Object.values(validRow)?.some(item => !item) : false;
@@ -54,7 +52,6 @@ const EditCell = (props) => {
     </div>
   );
 };
-
 
 EditCell.propTypes = {
   row: PropTypes.object,

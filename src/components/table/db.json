@@ -2,7 +2,7 @@
   "students": [
     {
       "id": "3",
-      "studentNumber": 3333,
+      "studentNumber": "3334",
       "name": "Raginolf Arnulf",
       "dateOfBirth": "1991-10-12",
       "major": "Business"
