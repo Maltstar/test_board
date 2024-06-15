@@ -1,22 +1,29 @@
 {
   "students": [
     {
-      "id": "3",
-      "studentNumber": "3334",
-      "name": "Raginolf Arnulf",
-      "dateOfBirth": "1991-10-12",
-      "major": "Business"
-    },
-    {
       "id": "4",
       "studentNumber": 4444,
-      "name": "Marvyn Wendi",
+      "name": "Marvyn klj",
       "dateOfBirth": "1978-09-24",
       "major": "Psychology"
     },
     {
-      "id": "9101",
-      "studentNumber": 9101,
+      "id": 1111,
+      "studentNumber": 1111,
+      "name": "",
+      "dateOfBirth": "",
+      "major": ""
+    },
+    {
+      "id": 6893,
+      "studentNumber": 6893,
+      "name": "",
+      "dateOfBirth": "",
+      "major": ""
+    },
+    {
+      "id": 8739,
+      "studentNumber": 8739,
       "name": "",
       "dateOfBirth": "",
       "major": ""

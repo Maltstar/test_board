@@ -27,7 +27,8 @@ table {
 
 table thead tr {
   background-color: #4bbd7f;
-  color: #ffffff;
+  //color: #ffffff;
+  color: #f6f6f6;
   text-align: left;
 }
 
@@ -38,10 +39,12 @@ table td {
 
 table tbody tr {
   border-bottom: 1px solid #dddddd;
+ // border-bottom: 1px solid #f6f6f6;
 }
 
 table tbody tr:nth-of-type(even) {
-  background-color: #f6f6f6;
+  //background-color: #f6f6f6;
+  //background-color: #dddddd;
 }
 
 table tbody tr:last-of-type {
