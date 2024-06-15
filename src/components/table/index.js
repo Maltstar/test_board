@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
 import { useEffect, useState } from "react";
+import { CButton,CNav, CNavItem } from "@coreui/react";
+
 //import { Student } from "./types";
 
 import {
@@ -116,6 +118,67 @@ export const Table = () => {
           <tr>
             <th colSpan={table.getCenterLeafColumns().length} align="right">
               <FooterCell table={table} />
+                               {/* UI table */}
+              <CNav variant="underline-border">
+                  <CNavItem>
+                      <CButton
+                      onClick={() => table.firstPage()}
+                      disabled={!table.getCanPreviousPage()}
+                      >
+                        {'<<'}
+                      </CButton>
+                  </CNavItem>
+                
+                  <CNavItem>
+                      <CButton
+                        onClick={() => table.previousPage()}
+                        disabled={!table.getCanPreviousPage()}
+                      >
+                        {'<'}
+                      </CButton>
+                  </CNavItem>
+
+                  <span >
+                      <div>Seite</div>
+                      <strong>
+                        {table.getState().pagination.pageIndex + 1} of{' '}
+                        {table.getPageCount()}
+                      </strong>
+                    </span>
+
+                  <CNavItem>
+                    <CButton
+                      onClick={() => table.nextPage()}
+                      disabled={!table.getCanNextPage()}
+                    >
+                      {'>'}
+                    </CButton>
+                  </CNavItem>
+                  
+                  <CNavItem>
+                    <CButton
+                      onClick={() => table.lastPage()}
+                      disabled={!table.getCanNextPage()}
+                    >
+                      {'>>'}
+                    </CButton>
+                  </CNavItem>
+                  
+                  <CNavItem>
+                    <select
+                      value={table.getState().pagination.pageSize}
+                      onChange={e => {
+                        table.setPageSize(Number(e.target.value))
+                      }}
+                    >
+                      {[10, 20, 30, 40, 50].map(pageSize => (
+                        <option key={pageSize} value={pageSize}>
+                          {pageSize}
+                        </option>
+                      ))}
+                      </select>
+                  </CNavItem>
+              </CNav>
             </th>
           </tr>
         </tfoot>
