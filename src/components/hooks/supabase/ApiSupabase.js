@@ -6,30 +6,31 @@ import supabase from '../../db/supabaseClient'
 
 //const supabase = createClient(proj_url, anon_key)
 
-const useReadDataInfo = (data_name) => {
-  const [Info, SetInfo] = useState({})
+const useReadDataInfo = (table) => {
+  const [Info, SetInfo] = useState({ data: [], isValidating: true })
   // init to true to fetch data from db at initialization
   const [Updated, SetUpdated] = useState(true)
+  // const [isValidating, SetIsValidating] = useState(false)
   console.log('useFetchDataInfo', Info)
+  // const table_db = 'info_verein'
 
   // suscribe to db to be aware of changes and rerender components displaying this data
   supabase
     .channel('social_club')
-    .on(
-      'postgres_changes',
-      { event: 'UPDATE', schema: 'public', table: 'info_verein' },
-      (payload) => {
-        console.log('Change received!', payload)
-        SetUpdated(true)
-      },
-    )
+    .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: table }, (payload) => {
+      console.log('Change received!', payload)
+      SetUpdated(true)
+    })
     .subscribe()
 
   async function getInfo() {
-    const { data } = await supabase.from(data_name).select()
+    const { data } = await supabase.from(table).select()
     console.log('getInfo', data)
     console.log('getInfo data[0]', data[0])
-    SetInfo(data[0])
+    SetInfo({
+      data: data,
+      isValidating: false,
+    })
     SetUpdated(false)
   }
 
@@ -38,6 +39,12 @@ const useReadDataInfo = (data_name) => {
       getInfo()
     }
   }, [Updated])
+
+  // useEffect(() => {
+  //   if (Info.id != undefined) {
+  //     // SetIsValidating(true)
+  //   }
+  // }, [Info])
 
   console.log('Info', Info)
   return Info

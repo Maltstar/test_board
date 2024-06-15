@@ -171,82 +171,16 @@ export const columns_personen = () => {
   return columns_app
 }
 
-console.log('columns_personen',columns_personen());
-
-// export const columnspersonen = [
-  // columnHelper.accessor('id', {
-  //   header: 'id',
-  //   cell: TableCell,
-  //   meta: {
-  //     type: 'number',
-  //   },
-  // }),
-  // columnHelper.accessor('Name', {
-  //   header: 'Name',
-  //   cell: TableCell,
-  //   meta: {
-  //     type: 'text',
-  //     required: true,
-  //     pattern: '^[a-zA-Z ]+$',
-  //   },
-  // }),
-  // columnHelper.accessor('Vorname', {
-  //   header: 'Vorname',
-  //   cell: TableCell,
-  //   meta: {
-  //     type: 'text',
-  //     required: true,
-  //     pattern: '^[a-zA-Z ]+$',
-  //   },
-  // }),
-  // columnHelper.accessor('Anschrift', {
-  //   header: 'Anschrift',
-  //   cell: TableCell,
-  //   meta: {
-  //     type: 'text',
-  //     required: true,
-  //     pattern: '^[a-zA-Z ]+$',
-  //   },
-  // }),
-  // columnHelper.accessor('erstellt_am', {
-  //   header: 'erstellt_am',
-  //   cell: TableCell,
-  //   meta: {
-  //     type: 'text',
-  //     required: true,
-  //     pattern: '^.+$',
-  //   },
-  // }),
-
-  // columnHelper.accessor('major', {
-  //   header: 'Major',
-  //   cell: TableCell,
-  //   meta: {
-  //     type: 'select',
-  //     options: [
-  //       { value: '', label: 'Select' },
-  //       { value: 'Computer Science', label: 'Computer Science' },
-  //       { value: 'Communications', label: 'Communications' },
-  //       { value: 'Business', label: 'Business' },
-  //       { value: 'Psychology', label: 'Psychology' },
-  //     ],
-  //     required: true,
-  //   },
-  // }),
-    //]
-
-          
-
 export const columns = [
-  columnHelper.accessor('studentNumber', {
-    header: 'Student Id',
+    columnHelper.accessor('id', {
+    header: 'id',
     cell: TableCell,
     meta: {
       type: 'number',
     },
   }),
-  columnHelper.accessor('name', {
-    header: 'Full Name',
+  columnHelper.accessor('Name', {
+    header: 'Name',
     cell: TableCell,
     meta: {
       type: 'text',
@@ -254,48 +188,8 @@ export const columns = [
       pattern: '^[a-zA-Z ]+$',
     },
   }),
-  columnHelper.accessor('dateOfBirth', {
-    header: 'Date Of Birth',
-    cell: TableCell,
-    meta: {
-      type: 'date',
-      required: true,
-      validate: (value) => validate_date(value),
-      validationMessage: 'Date cannot be in the future',
-    },
-  }),
-  columnHelper.accessor('major', {
-    header: 'Major',
-    cell: TableCell,
-    meta: {
-      type: 'select',
-      options: [
-        { value: '', label: 'Select' },
-        { value: 'Computer Science', label: 'Computer Science' },
-        { value: 'Communications', label: 'Communications' },
-        { value: 'Business', label: 'Business' },
-        { value: 'Psychology', label: 'Psychology' },
-      ],
-      required: true,
-    },
-  }),
-  columnHelper.display({
-    id: 'edit',
-    cell: EditCell,
-  }),
-]
-
-
-export const columnspersonen = [
-  columnHelper.accessor('studentNumber', {
-    header: 'Student Id',
-    cell: TableCell,
-    meta: {
-      type: 'number',
-    },
-  }),
-  columnHelper.accessor('name', {
-    header: 'Full Name',
+  columnHelper.accessor('Vorname', {
+    header: 'Vorname',
     cell: TableCell,
     meta: {
       type: 'text',
@@ -303,29 +197,22 @@ export const columnspersonen = [
       pattern: '^[a-zA-Z ]+$',
     },
   }),
-  columnHelper.accessor('dateOfBirth', {
-    header: 'Date Of Birth',
+  columnHelper.accessor('Anschrift', {
+    header: 'Anschrift',
     cell: TableCell,
     meta: {
-      type: 'date',
+      type: 'text',
       required: true,
-      validate: (value) => validate_date(value),
-      validationMessage: 'Date cannot be in the future',
+      pattern: '^[a-zA-Z ]+$',
     },
   }),
-  columnHelper.accessor('major', {
-    header: 'Major',
+  columnHelper.accessor('erstellt_am', {
+    header: 'erstellt_am',
     cell: TableCell,
     meta: {
-      type: 'select',
-      options: [
-        { value: '', label: 'Select' },
-        { value: 'Computer Science', label: 'Computer Science' },
-        { value: 'Communications', label: 'Communications' },
-        { value: 'Business', label: 'Business' },
-        { value: 'Psychology', label: 'Psychology' },
-      ],
+      type: 'text',
       required: true,
+      pattern: '^.+$',
     },
   }),
   columnHelper.display({

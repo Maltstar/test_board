@@ -17,6 +17,7 @@ import { Docs } from 'src/components'
 import info_akkordeon from 'src/lib/utils'
 import VermehrungsmaterialAktuell from './VermehrungsmaterialAktuell'
 import { Table } from '../../../../components/table/index'
+import { TableInfoPersonen } from '../../../../components/table/TableInfoPersonen'
 //import useStudents from '../../../../components/table/useStudents'
 
 const Vermehrungsmaterial = () => {
@@ -26,6 +27,7 @@ const Vermehrungsmaterial = () => {
     <>
       <h1>Vereinsvermehrungsmaterial (juristischen Personen)</h1>
       <VermehrungsmaterialAktuell />
+      <TableInfoPersonen />
       <Table />
     </>
 

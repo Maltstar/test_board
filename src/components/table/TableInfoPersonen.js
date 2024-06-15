@@ -10,44 +10,46 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-
-import { columns } from './columns';
+import {  columns } from "./columns_personen";
 import  FooterCell from "./FooterCell";
-import useStudents from "./useStudents";
-import { test } from './useTabledb';
+import useTableDb from './useTabledb';
 
-export const Table = () => {
-  const { data: originalData1, isValidating, addRow, updateRow, deleteRow } = useStudents();
+export const TableInfoPersonen = () => {
+  const { data: originalData, isValidating, addRow, updateRow, deleteRow } = useTableDb('info_personen');
   const [data, setData] = useState([]);
   const [editedRows, setEditedRows] = useState({});
   const [validRows, setValidRows] = useState({});
-  //console.log(test())
-  // console.log('Table originalData',originalData);
-   console.log('Table data',data);
-  // console.log('Table columns',columns);
-   console.log('Table isValidating',isValidating);
-  const originalData = [
-  {
-    //"id": "4",
-    "studentNumber": 4444,
-    "name": "Marvyn klj",
-    "dateOfBirth": "1978-09-24",
-    "major": "Psychology"
-  }
-]
+  const [id,SetId] = useState(20)
+  //const isValidating = true;
+  
+
+//   const originalData = [
+//     {
+//         "id": 4,
+//         "Name": "Weber",
+//         "Vorname": "Sophie",
+//         "Anschrift": "Schulstraße 47, 10115 Berlin",
+//         "erstellt_am": "2024-05-23"
+//       }
+//     ]
+
+ // const isValidating = true
+
+console.log('TableInfoPersonen originalData',originalData);
+//   console.log('TableInfoPersonen columnspersonen',columnspersonen);
+   console.log('TableInfoPersonen isValidating',isValidating);
+   
+  console.log('TableInfoPersonen data',data);
 
   useEffect(() => {
     if (isValidating) return;
     setData([...originalData]);
   }, [isValidating]);
 
-  console.log('Table originalData',originalData);
-  console.log('Table data',data);
-
   const table = useReactTable({
     data,
     columns,
-    //columns_personen,
+    //columnspersonen,
     getCoreRowModel: getCoreRowModel(),
     enableRowSelection: true,
     meta: {
@@ -83,14 +85,16 @@ export const Table = () => {
         }));
       },
       addRow: () => {
-        const id = Math.floor(Math.random() * 10000);
+        //const id = Math.floor(Math.random() * 10000);
+        
         const newRow = {
-          id,
-          studentNumber: id,
+          id:id,
           name: "",
-          dateOfBirth: "",
-          major: ""
+          Vorname: "",
+          Anschrift: "",
+          erstellt_am: new Date()
         };
+        SetId((previousId) => previousId + 1)
         addRow(newRow);
       },
       removeRow: (rowIndex) => {
@@ -104,10 +108,10 @@ export const Table = () => {
     },
   });
 
-  console.log('Table index table getAllColumns', table.getAllColumns());
-  console.log( 'Table index  table getHeaderGroups',table.getHeaderGroups())
-  console.log( 'Table getRowModel', table.getRowModel().rows)
-
+//   console.log('TableInfoPersonen table', table);
+//   console.log('TableInfoPersonen table getAllColumns', table.getAllColumns());
+  console.log( 'TableInfoPersonen table getHeaderGroups',table.getHeaderGroups())
+  console.log( 'TableInfoPersonen getRowModel', table.getRowModel().rows)
 
   return (
     <article className="table-container">
@@ -130,12 +134,12 @@ export const Table = () => {
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => {
-            console.log('Table getRowModel row', row);
+            console.log('TableInfoPersonen getRowModel row', row);
             return(
-            
             <tr key={row.id}>
               {row.getVisibleCells().map((cell) => {
-                 console.log('Table cell',cell);
+                console.log('TableInfoPersonen cell',cell);
+
                 return(
                 <td key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}

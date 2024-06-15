@@ -20,20 +20,20 @@ import { useWriteDataInfo, useCreateAnonUser } from '../../../components/hooks/s
 const InfoAktuell = () => {
   //useWriteDataInfo()
   // const anon_user = useCreateAnonUser()
-  const info = useReadDataInfo('info_verein')
+  const { data } = useReadDataInfo('info_verein')
 
   return (
     <CAccordion alwaysOpen>
       <CAccordionItem itemKey={1}>
         <CAccordionHeader>Name der Verein</CAccordionHeader>
         <CAccordionBody>
-          <strong>{info.name}</strong>
+          <strong>{data.name}</strong>
         </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem itemKey={2}>
         <CAccordionHeader>Sitz der Verein</CAccordionHeader>
         <CAccordionBody>
-          <p> {info.sitz}</p>
+          <p> {data.sitz}</p>
         </CAccordionBody>
       </CAccordionItem>
       <CAccordionItem itemKey={5}>
