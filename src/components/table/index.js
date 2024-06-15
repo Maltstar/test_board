@@ -17,24 +17,24 @@ import useStudents from "./useStudents";
 import { test } from './useTabledb';
 
 export const Table = () => {
-  const { data: originalData1, isValidating, addRow, updateRow, deleteRow } = useStudents();
+  const { data: originalData, isValidating, addRow, updateRow, deleteRow } = useStudents();
   const [data, setData] = useState([]);
   const [editedRows, setEditedRows] = useState({});
   const [validRows, setValidRows] = useState({});
-  //console.log(test())
+  console.log(test())
   // console.log('Table originalData',originalData);
    console.log('Table data',data);
   // console.log('Table columns',columns);
    console.log('Table isValidating',isValidating);
-  const originalData = [
-  {
-    //"id": "4",
-    "studentNumber": 4444,
-    "name": "Marvyn klj",
-    "dateOfBirth": "1978-09-24",
-    "major": "Psychology"
-  }
-]
+//   const originalData = [
+//   {
+//     //"id": "4",
+//     "studentNumber": 4444,
+//     "name": "Marvyn klj",
+//     "dateOfBirth": "1978-09-24",
+//     "major": "Psychology"
+//   }
+// ]
 
   useEffect(() => {
     if (isValidating) return;

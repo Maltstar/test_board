@@ -98,6 +98,7 @@ console.log('TableInfoPersonen originalData',originalData);
         addRow(newRow);
       },
       removeRow: (rowIndex) => {
+        console.log('removeRow',rowIndex);
         deleteRow(data[rowIndex].id);
       },
       removeSelectedRows: (selectedRows) => {

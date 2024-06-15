@@ -7,13 +7,14 @@ import useReadDataInfo from '../hooks/supabase/ApiSupabase';
 const url = 'http://localhost:5000/students';
 
 async function updateRequest(table, id, updateData) {
-  const { data, error } = await supabase
+  console.log('updateRequest table id updateData',id, table,updateData);
+  const { status, statusText } = await supabase
       .from(table)
       .update({ ...updateData })
       .eq('id', id)
-      .select()
-    console.log('data', data)
-    console.log('error', error)
+      
+    console.log('status', status)
+    console.log('statusText', statusText)
 
   // const response = await fetch(`${url}/${id}`, {
   //   method: 'PUT',
@@ -23,7 +24,7 @@ async function updateRequest(table, id, updateData) {
   //   body: JSON.stringify(data),
   // });
   // return response.json();
-  return error
+  return status
 }
 
 async function addRequest(table,data) {
@@ -37,6 +38,7 @@ async function addRequest(table,data) {
 
 async function deleteRequest(table,id) {
 
+  console.log('deleteRequest table id',table,id);
   const { status } = await supabase
       .from(table)
       .delete()
@@ -71,9 +73,9 @@ export async function test()
   console.log('info_personen',test);
   const person  = { 
     
-    id: 2	,
+    id: 4	,
     Name:'Schmidt',
-    Vorname: 'Lea',
+    Vorname: 'Hollla',
     Anschrift:'Gartenweg 88 20095 Hamburg',
     erstellt_am:'2023-11-28'
   }
@@ -82,13 +84,13 @@ export async function test()
     
     id: 23	,
     Name:'Hanzel',
-    Vorname: 'Gretel',
+    Vorname: 'Techek',
     Anschrift:'gg 88 20095 Hamburg',
     erstellt_am:'2023-11-28'
   }
 
-  const write_info_personen = await updateRequest('info_personen',2,person)
-  const delete_info_personen = await deleteRequest('info_personen',3) 
+  const write_info_personen = await updateRequest('info_personen',person.id,person)
+  const delete_info_personen = await deleteRequest('info_personen',5) 
   const add_info_personen = await addRequest('info_personen',person2)
   console.log('write_info_personen',write_info_personen)
   console.log('delete_info_personen',delete_info_personen)
@@ -112,20 +114,25 @@ export default function useTableDb(table) {
   //const isValidating = error == null ? true : false
   //const isValidating = true;
   console.log('useTableDb data',data);
+  console.log('useTableDb table',table);
+
+  // sort data according to id, to have db and frontend syncronized
+  data.sort( (a,b) => a.id > b.id )
 
 
   const updateRow = async (id, postData) => {
-    await updateRequest(id, postData);
+    console.log('updateRow id postData',id,postData);
+    await updateRequest(table, id, postData);
     //mutate(url);
   };
 
   const deleteRow = async (id) => {
-    await deleteRequest(id);
+    await deleteRequest(table,id);
     //mutate(url);
   };
 
   const addRow = async (postData) => {
-    await addRequest(postData);
+    await addRequest(table,postData);
     //mutate(url);
   };
 
