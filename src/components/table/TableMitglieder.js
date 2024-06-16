@@ -8,6 +8,7 @@ import { CButton,CNav, CNavItem } from "@coreui/react";
 import {
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import {  columns } from "./columns_mitglieder";
@@ -15,6 +16,7 @@ import  FooterCell from "./FooterCell";
 import useTableDb from './useTabledb';
 import useReadDataInfo from '../hooks/supabase/ApiSupabase';
 import { getRndInteger } from './TableInfoPersonen'
+import { test } from './useTabledb';
 
 export const TableMitglieder = () => {
   const { data: originalData, isValidating, addRow, updateRow, deleteRow } = useTableDb('info_mitglieder');
@@ -24,6 +26,11 @@ export const TableMitglieder = () => {
   const [id,SetId] = useState(originalData.length + 1)
   const [totalBought,SetTotalBought] = useState(0)
 
+  const [pagination, setPagination] = useState({
+    pageIndex: 0, //initial page index
+    pageSize: 20, //default page size
+  });
+
   const sum_all_sales = (data) => {
     let sum = 0
     data.map((member) => {
@@ -32,6 +39,8 @@ export const TableMitglieder = () => {
 
     return sum
   }
+
+  test()
   
   //const {dataUpdated, isValidatingUpdated} = useReadDataInfo('info_personen')
 
@@ -70,6 +79,12 @@ console.log('TableMitglieder originalData before use effect id',id);
     columns,
     //columnspersonen,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination, //update the pagination state when internal APIs mutate the pagination state
+    state: {
+        //...
+        pagination,
+    },
     enableRowSelection: true,
     meta: {
       editedRows,
@@ -116,10 +131,12 @@ console.log('TableMitglieder originalData before use effect id',id);
          // id: data.length + 1,
           Name: "",
           Vorname: "",
-          Geburtsjahr: "",
-          "Menge in g": "",
-          "THC-Gehalt in %": "",
-          erstellt_am: newDate
+          Geburtsjahr: 0,
+          Adresse: "",
+          "Bezahltes jahres Abo": "nein",
+          "Total gekauft (€)": 0,
+          "Total gekauft Menge (g)": 0,
+          'Eintritt Datum': newDate
         };
         //SetId((previousId) => previousId + 1)
         addRow(newRow);

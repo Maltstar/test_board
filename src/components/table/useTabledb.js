@@ -91,10 +91,23 @@ export async function test()
     erstellt_am:'2023-11-28'
   }
 
-  const write_info_personen = await updateRequest('info_personen',person.id,person)
-  const delete_info_personen = await deleteRequest('info_personen',5) 
-  const add_info_personen = await addRequest('info_personen',person2)
-  console.log('write_info_personen',write_info_personen)
+  const mitglied = {
+    id: 23,
+   // id: data.length + 1,
+    Name: "",
+    Vorname: "",
+    Geburtsjahr: 0,
+    Adresse: "",
+    "Bezahltes jahres Abo": "nein",
+    "Total gekauft (€)": 0,
+    "Total gekauft Menge (g)": 0,
+    'Eintritt Datum': '2024-06-14'
+  };
+
+  //const write_info_personen = await updateRequest('info_mitglieder',mitglied.id,mitglied)
+ // const delete_info_personen = await deleteRequest('info_personen',5) 
+  const add_info_personen = await addRequest('info_mitglieder',mitglied)
+  //console.log('write_info_personen',write_info_personen)
   console.log('delete_info_personen',delete_info_personen)
   console.log('add_info_personen',add_info_personen)
 }

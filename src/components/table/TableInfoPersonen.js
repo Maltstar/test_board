@@ -28,7 +28,7 @@ export const TableInfoPersonen = () => {
 
   const [pagination, setPagination] = useState({
     pageIndex: 0, //initial page index
-    pageSize: 10, //default page size
+    pageSize: 20, //default page size
   });
   
   //const {dataUpdated, isValidatingUpdated} = useReadDataInfo('info_personen')
