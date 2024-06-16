@@ -85,14 +85,13 @@ const _nav = [
       },
       {
         component: CNavItem,
-        name: 'Gesetzesvorschriften',
-        to: '/verein/gesetzesvorschriften',
-      },
-
-      {
-        component: CNavItem,
         name: 'Mitglieder',
         to: '/verein/mitglieder',
+      },
+      {
+        component: CNavItem,
+        name: 'Gesetzesvorschriften',
+        to: '/verein/gesetzesvorschriften',
       },
       // {
       //   component: CNavItem,
