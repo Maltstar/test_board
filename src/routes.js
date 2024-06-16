@@ -58,6 +58,9 @@ const Gesetzesvorschriften = React.lazy(
 const Vermehrungsmaterial = React.lazy(
   () => import('./views/verein/partners/vermehrungsmaterial/Vermehrungsmaterial'),
 )
+
+const Mitglieder = React.lazy(() => import('./views/verein/mitglieder/Mitglieder'))
+
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
 const routes = [
@@ -120,6 +123,13 @@ const routes = [
     name: 'Vermehrungsmaterial',
     element: Vermehrungsmaterial,
   },
+
+  { path: '/verein/mitglieder', name: 'Mitglieder', element: Mitglieder },
+  // {
+  //   path: '/verein/partners/vermehrungsmaterial',
+  //   name: 'Vermehrungsmaterial',
+  //   element: Vermehrungsmaterial,
+  // },
 ]
 
 export default routes

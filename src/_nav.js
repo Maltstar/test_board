@@ -89,11 +89,11 @@ const _nav = [
         to: '/verein/gesetzesvorschriften',
       },
 
-      // {
-      //   component: CNavItem,
-      //   name: 'Accordion',
-      //   to: '/base/accordion',
-      // },
+      {
+        component: CNavItem,
+        name: 'Mitglieder',
+        to: '/verein/mitglieder',
+      },
       // {
       //   component: CNavItem,
       //   name: 'Breadcrumb',
