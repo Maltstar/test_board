@@ -17,8 +17,11 @@ const useReadDataInfo = (table) => {
   // suscribe to db to be aware of changes and rerender components displaying this data
   supabase
     .channel('social_club')
-    .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: table }, (payload) => {
+    .on('postgres_changes', { event: '*', schema: 'public', table: table }, (payload) => {
       console.log('Change received!', payload)
+      // clean info
+      SetInfo({ data: [], isValidating: true })
+      // trigger an update
       SetUpdated(true)
     })
     .subscribe()
@@ -46,7 +49,7 @@ const useReadDataInfo = (table) => {
   //   }
   // }, [Info])
 
-  console.log('Info', Info)
+  console.log('useReadDataInfo Info', Info)
   return Info
 }
 

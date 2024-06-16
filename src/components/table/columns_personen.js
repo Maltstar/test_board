@@ -203,7 +203,7 @@ export const columns = [
     meta: {
       type: 'text',
       required: true,
-      pattern: '^[a-zA-Z ]+$',
+      pattern: '^.+$',
     },
   }),
   columnHelper.accessor('erstellt_am', {

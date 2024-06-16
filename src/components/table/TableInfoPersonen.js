@@ -13,6 +13,7 @@ import {
 import {  columns } from "./columns_personen";
 import  FooterCell from "./FooterCell";
 import useTableDb from './useTabledb';
+import useReadDataInfo from '../hooks/supabase/ApiSupabase';
 
 export const TableInfoPersonen = () => {
   const { data: originalData, isValidating, addRow, updateRow, deleteRow } = useTableDb('info_personen');
@@ -22,6 +23,8 @@ export const TableInfoPersonen = () => {
   const [id,SetId] = useState(originalData.length + 1)
   const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min
   
+  //const {dataUpdated, isValidatingUpdated} = useReadDataInfo('info_personen')
+
   //const [id,SetId] = useState(30)
   //const isValidating = true;
   
