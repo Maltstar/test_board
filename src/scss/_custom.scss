@@ -13,16 +13,21 @@
 .table-container {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    //margin-top: 50px;
+    margin-top: 3.125rem;
 }
 
 table {
   border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 14px;
+  margin: 1.563rem;
+  //margin:25px
+  //font-size: 14px;
+  font-size: 0.875rem;
   font-family: sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  width: 720px
+  width: fit-content;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 table thead tr {
@@ -34,11 +39,14 @@ table thead tr {
 
 table th,
 table td {
-    padding: 10px 15px;
+    //padding: 10px 15px;
+    padding: 0.625rem 0.938rem;
 }
 
 table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  //border-bottom: 1px solid #dddddd;
+  border-bottom: 0.063 solid #dddddd;
+ 
  // border-bottom: 1px solid #f6f6f6;
 }
 
@@ -48,7 +56,8 @@ table tbody tr:nth-of-type(even) {
 }
 
 table tbody tr:last-of-type {
-  border-bottom: 2px solid #4bbd7f;
+  //border-bottom: 2px solid #4bbd7f;
+  border-bottom: 0.125rem solid #4bbd7f;
 }
 
 table tbody tr.active-row {
@@ -57,25 +66,33 @@ table tbody tr.active-row {
 }
 
 table td:first-child input {
-  width: 50px;
+  //width: 50px;
+  width: 3.125rem;
 }
 
 table td:nth-child(2) input {
-  width: 120px;
+  //width: 120px;
+  width:7.5rem;
 }
 
 table .edit-cell-container button {
-  border-radius: 50px;
-  height: 26px;
-  width: 26px;
-  border: 1px solid #ccc;
+  // border-radius: 50px;
+  // height: 26px;
+  // width: 26px;
+  // border: 1px solid #ccc;
+
+  border-radius: 3.125rem;
+  height: 1.625rem;
+  width: 1.625rem;
+  border: 0.063rem solid #ccc;
 }
 
 table .footer-buttons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 7px;
+ // gap: 7px;
+  gap: 0.438rem;
 }
 
 table .add-button {
@@ -113,28 +130,37 @@ table .edit-cell-action button[name='remove'] {
 }
 
 table input, select {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 5px;
+    // border: 1px solid #ccc;
+    // border-radius: 4px;
+    // padding: 5px;
+
+    border: 0.063rem solid #ccc;
+    border-radius: 0.25rem;
+    padding: 0.313rem;
 }
 
 table .edit-cell-action {
   display: flex;
-    gap: 5px;
+    //gap: 5px;
+    gap: 0.313rem;
 }
 
 table .edit-cell-container {
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 4px;
+  //gap: 4px;
+  gap: 0.25rem;
 }
 
 table input[type='checkbox'] {
-  width: 16px;
-  height: 16px;
+  // width: 16px;
+  // height: 16px;
+  width: 1rem;
+  height: 1rem;
 }
 
 select:invalid, input:invalid {
-  border: 2px solid red;
+  border: 0.125rem solid red;
 }
+
