@@ -121,7 +121,7 @@ export default function useTableDb(table) {
     // })
     // .subscribe()
 
-  const {data, isValidating} = useReadDataInfo('info_personen')
+  const {data, isValidating} = useReadDataInfo(table)
   //const isValidating = error == null ? true : false
   //const isValidating = true;
   console.log('useTableDb data',data);

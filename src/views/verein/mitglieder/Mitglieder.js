@@ -1,6 +1,5 @@
 import React from 'react'
-import { TableInfoPersonen } from '../../../components/table/TableInfoPersonen'
-//import useStudents from '../../../../components/table/useStudents'
+import { TableMitglieder } from '../../../components/table/TableMitglieder'
 
 const Mitglieder = () => {
   //const { data, isValidating, addRow, updateRow, deleteRow } = useStudents()
@@ -9,7 +8,7 @@ const Mitglieder = () => {
     <>
       <h1>Mitglieder</h1>
       {/* <VermehrungsmaterialAktuell /> */}
-      <TableInfoPersonen />
+      <TableMitglieder />
       {/* <Table /> */}
     </>
 

@@ -200,45 +200,22 @@ export const columns = [
       type: 'number',
     },
   }),
-  columnHelper.accessor('Adresse', {
-    header: 'Adresse',
-    cell: TableCell,
-    meta: {
-      type: 'text',
-      required: true,
-      pattern: '^.+$',
-    },
-  }),
-  columnHelper.accessor('Bezahltes jahres Abo', {
-    header: 'Bezahltes jahres Abo',
-    cell: TableCell,
-    meta: {
-      type: 'select',
-      options: [
-        { value: 'ja', label: 'Select' },
-        { value: 'ja', label: 'ja' },
-        { value: 'nein', label: 'nein' },
-      ],
-      required: true,
-    }}),
-  columnHelper.accessor('Total gekauft (€)', {
-    header: 'Total gekauft (€)',
+  columnHelper.accessor('Menge in g', {
+    header: 'Menge in g',
     cell: TableCell,
     meta: {
       type: 'number',
     },
   }),
-  columnHelper.accessor('Total gekauft Menge (g)', {
-    header: 'Total gekauft Menge (g)',
+  columnHelper.accessor('THC-Gehalt in %', {
+    header: 'THC-Gehalt in %',
     cell: TableCell,
     meta: {
       type: 'number',
     },
   }),
-
-
-  columnHelper.accessor('Eintritt Datum', {
-    header: 'Eintritt Datum',
+  columnHelper.accessor('Datum', {
+    header: 'Datum',
     cell: TableCell,
     meta: {
       type: 'text',

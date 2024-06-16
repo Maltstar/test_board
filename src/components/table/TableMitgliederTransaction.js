@@ -16,22 +16,12 @@ import useTableDb from './useTabledb';
 import useReadDataInfo from '../hooks/supabase/ApiSupabase';
 import { getRndInteger } from './TableInfoPersonen'
 
-export const TableMitglieder = () => {
+export const TableMitgliedTransaction = () => {
   const { data: originalData, isValidating, addRow, updateRow, deleteRow } = useTableDb('info_mitglieder');
   const [data, setData] = useState([]);
   const [editedRows, setEditedRows] = useState({});
   const [validRows, setValidRows] = useState({});
   const [id,SetId] = useState(originalData.length + 1)
-  const [totalBought,SetTotalBought] = useState(0)
-
-  const sum_all_sales = (data) => {
-    let sum = 0
-    data.map((member) => {
-      sum += member['Total gekauft (€)']
-    })
-
-    return sum
-  }
   
   //const {dataUpdated, isValidatingUpdated} = useReadDataInfo('info_personen')
 
@@ -62,7 +52,6 @@ console.log('TableMitglieder originalData before use effect id',id);
     if (isValidating) return;
     setData([...originalData]);
     SetId(originalData.length + 1)
-    SetTotalBought(sum_all_sales(originalData))
   }, [isValidating]);
 
   const table = useReactTable({
@@ -248,9 +237,6 @@ console.log('TableMitglieder originalData before use effect id',id);
         </table>
           <div className="alert alert-info" role="alert">
                   {id-1} Mitglieder
-              </div>
-          <div className="alert alert-success" role="alert">
-                  Total Einahme {totalBought} €
               </div>
         
         </div>
