@@ -26,7 +26,7 @@ table {
   font-family: sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: fit-content;
-  overflow-x: auto;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -164,3 +164,33 @@ select:invalid, input:invalid {
   border: 0.125rem solid red;
 }
 
+@media screen and (max-width:800px) {
+	
+  table {
+    width: 100%;
+  }
+
+  table td:first-child input {
+    //width: 50px;
+    width:100%;
+  }
+
+  table td:nth-child(2) input {
+    //width: 120px;
+    width:100%;
+  }
+
+  table .edit-cell-container button {
+    // border-radius: 50px;
+    // height: 26px;
+    // width: 26px;
+    // border: 1px solid #ccc;
+  
+
+    height: 100%;
+    width: 100%;
+
+  }
+
+
+}  

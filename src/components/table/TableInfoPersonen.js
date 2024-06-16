@@ -116,108 +116,111 @@ console.log('TableInfoPersonen originalData',originalData);
 
   return (
     <article className="table-container">
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => {
-            console.log('TableInfoPersonen getRowModel row', row);
-            return(
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => {
-                console.log('TableInfoPersonen cell',cell);
-
+        <div className="table-responsive">
+            <table >
+            <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+                <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                    <th key={header.id}>
+                    {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                        )}
+                    </th>
+                ))}
+                </tr>
+            ))}
+            </thead>
+            <tbody>
+            {table.getRowModel().rows.map((row) => {
+                console.log('TableInfoPersonen getRowModel row', row);
                 return(
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              )})}
-            </tr>
-          )})}
-        </tbody>
-        <tfoot>
-          <tr>
-            <th colSpan={table.getCenterLeafColumns().length} align="right">
-              <FooterCell table={table} />
-                               {/* UI table */}
-              <CNav variant="underline-border">
-                  <CNavItem>
-                      <CButton
-                      onClick={() => table.firstPage()}
-                      disabled={!table.getCanPreviousPage()}
-                      >
-                        {'<<'}
-                      </CButton>
-                  </CNavItem>
-                
-                  <CNavItem>
-                      <CButton
-                        onClick={() => table.previousPage()}
+                <tr key={row.id}>
+                {row.getVisibleCells().map((cell) => {
+                    console.log('TableInfoPersonen cell',cell);
+
+                    return(
+                    <td key={cell.id}>
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </td>
+                )})}
+                </tr>
+            )})}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colSpan={table.getCenterLeafColumns().length} align="right">
+                <FooterCell table={table} />
+                                {/* UI table */}
+                <CNav variant="underline-border">
+                    <CNavItem>
+                        <CButton
+                        onClick={() => table.firstPage()}
                         disabled={!table.getCanPreviousPage()}
-                      >
-                        {'<'}
-                      </CButton>
-                  </CNavItem>
+                        >
+                            {'<<'}
+                        </CButton>
+                    </CNavItem>
+                    
+                    <CNavItem>
+                        <CButton
+                            onClick={() => table.previousPage()}
+                            disabled={!table.getCanPreviousPage()}
+                        >
+                            {'<'}
+                        </CButton>
+                    </CNavItem>
 
-                  <span >
-                      <div>Seite</div>
-                      <strong>
-                        {table.getState().pagination.pageIndex + 1} of{' '}
-                        {table.getPageCount()}
-                      </strong>
-                    </span>
+                    <span >
+                        <div>Seite</div>
+                        <strong>
+                            {table.getState().pagination.pageIndex + 1} of{' '}
+                            {table.getPageCount()}
+                        </strong>
+                        </span>
 
-                  <CNavItem>
-                    <CButton
-                      onClick={() => table.nextPage()}
-                      disabled={!table.getCanNextPage()}
-                    >
-                      {'>'}
-                    </CButton>
-                  </CNavItem>
-                  
-                  <CNavItem>
-                    <CButton
-                      onClick={() => table.lastPage()}
-                      disabled={!table.getCanNextPage()}
-                    >
-                      {'>>'}
-                    </CButton>
-                  </CNavItem>
-                  
-                  <CNavItem>
-                    <select
-                      value={table.getState().pagination.pageSize}
-                      onChange={e => {
-                        table.setPageSize(Number(e.target.value))
-                      }}
-                    >
-                      {[10, 20, 30, 40, 50].map(pageSize => (
-                        <option key={pageSize} value={pageSize}>
-                          {pageSize}
-                        </option>
-                      ))}
-                      </select>
-                  </CNavItem>
-              </CNav>
-            </th>
-          </tr>
-        </tfoot>
-      </table>
+                    <CNavItem>
+                        <CButton
+                        onClick={() => table.nextPage()}
+                        disabled={!table.getCanNextPage()}
+                        >
+                        {'>'}
+                        </CButton>
+                    </CNavItem>
+                    
+                    <CNavItem>
+                        <CButton
+                        onClick={() => table.lastPage()}
+                        disabled={!table.getCanNextPage()}
+                        >
+                        {'>>'}
+                        </CButton>
+                    </CNavItem>
+                    
+                    <CNavItem>
+                        <select
+                        value={table.getState().pagination.pageSize}
+                        onChange={e => {
+                            table.setPageSize(Number(e.target.value))
+                        }}
+                        >
+                        {[10, 20, 30, 40, 50].map(pageSize => (
+                            <option key={pageSize} value={pageSize}>
+                            {pageSize}
+                            </option>
+                        ))}
+                        </select>
+                    </CNavItem>
+                </CNav>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+        </div>
+     
       {/* <pre>{JSON.stringify(data, null, "\t")}</pre> */}
     </article>
 
