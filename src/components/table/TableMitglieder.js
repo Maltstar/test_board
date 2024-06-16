@@ -40,7 +40,7 @@ export const TableMitglieder = () => {
     return sum
   }
 
-  test()
+  //test()
   
   //const {dataUpdated, isValidatingUpdated} = useReadDataInfo('info_personen')
 
