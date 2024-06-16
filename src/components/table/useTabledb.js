@@ -33,6 +33,8 @@ async function addRequest(table,data) {
   .from(table)
   .insert(data)
 
+  console.log('addRequest',statusText);
+
   return statusText;
 }
 
@@ -82,10 +84,10 @@ export async function test()
 
   const person2  = { 
     
-    id: 23	,
-    Name:'Hanzel',
-    Vorname: 'Techek',
-    Anschrift:'gg 88 20095 Hamburg',
+    id: 27	,
+    Name:'Edouardo',
+    Vorname: 'Zinep',
+    Anschrift:'Waldstraße 88 20095 Hamburg',
     erstellt_am:'2023-11-28'
   }
 
@@ -110,6 +112,15 @@ export default function useTableDb(table) {
   //const { data, isValidating } = useSWR(url, getRequest);
   //const [data, setData]
   //const {data, error} = getRequestWrapper(table)
+    // suscribe to db to be aware of changes and rerender components displaying this data
+    // supabase
+    // .channel('social_club')
+    // .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: table }, (payload) => {
+    //   console.log('Change received!', payload)
+    //   SetUpdated(true)
+    // })
+    // .subscribe()
+
   const {data, isValidating} = useReadDataInfo('info_personen')
   //const isValidating = error == null ? true : false
   //const isValidating = true;
@@ -132,6 +143,7 @@ export default function useTableDb(table) {
   };
 
   const addRow = async (postData) => {
+    console.log("addRow",postData);
     await addRequest(table,postData);
     //mutate(url);
   };

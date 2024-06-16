@@ -21,7 +21,7 @@ export const Table = () => {
   const [data, setData] = useState([]);
   const [editedRows, setEditedRows] = useState({});
   const [validRows, setValidRows] = useState({});
-  console.log(test())
+  //console.log(test())
   // console.log('Table originalData',originalData);
    console.log('Table data',data);
   // console.log('Table columns',columns);

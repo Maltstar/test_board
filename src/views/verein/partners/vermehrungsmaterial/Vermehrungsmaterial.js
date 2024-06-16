@@ -26,9 +26,9 @@ const Vermehrungsmaterial = () => {
   return (
     <>
       <h1>Vereinsvermehrungsmaterial (juristischen Personen)</h1>
-      <VermehrungsmaterialAktuell />
+      {/* <VermehrungsmaterialAktuell /> */}
       <TableInfoPersonen />
-      <Table />
+      {/* <Table /> */}
     </>
 
     // <CRow>

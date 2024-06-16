@@ -19,7 +19,10 @@ export const TableInfoPersonen = () => {
   const [data, setData] = useState([]);
   const [editedRows, setEditedRows] = useState({});
   const [validRows, setValidRows] = useState({});
-  const [id,SetId] = useState(20)
+  const [id,SetId] = useState(originalData.length + 1)
+  const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min
+  
+  //const [id,SetId] = useState(30)
   //const isValidating = true;
   
 
@@ -36,6 +39,7 @@ export const TableInfoPersonen = () => {
  // const isValidating = true
 
 console.log('TableInfoPersonen originalData',originalData);
+console.log('TableInfoPersonen originalData before use effect id',id);
 //   console.log('TableInfoPersonen columnspersonen',columnspersonen);
    console.log('TableInfoPersonen isValidating',isValidating);
    
@@ -44,6 +48,7 @@ console.log('TableInfoPersonen originalData',originalData);
   useEffect(() => {
     if (isValidating) return;
     setData([...originalData]);
+    SetId(originalData.length + 1)
   }, [isValidating]);
 
   const table = useReactTable({
@@ -87,14 +92,20 @@ console.log('TableInfoPersonen originalData',originalData);
       addRow: () => {
         //const id = Math.floor(Math.random() * 10000);
         
-        const newRow = {
-          id:id,
-          name: "",
+        const date = new Date();
+        const newDate = date.getFullYear() + '-' +  (((date.getMonth() + 1) < 10) ? '0':'') + (date.getMonth() + 1) + '-' + date.getDate()
+        console.log("addRow id",id);
+        console.log(' addRow TableInfoPersonen originalData after use effect id',id);
+        console.log(' addRow TableInfoPersonen originalData after use effect data.length',data.length);
+        let newRow = {
+          id:getRndInteger(30,10000),
+         // id: data.length + 1,
+          Name: "",
           Vorname: "",
           Anschrift: "",
-          erstellt_am: new Date()
+          erstellt_am: newDate
         };
-        SetId((previousId) => previousId + 1)
+        //SetId((previousId) => previousId + 1)
         addRow(newRow);
       },
       removeRow: (rowIndex) => {
