@@ -11,6 +11,7 @@ import {
   cilPencil,
   cilPuzzle,
   cilSpeedometer,
+  cilFeaturedPlaylist,
   cilStar,
   cilHome,
   cilStorage,
@@ -158,6 +159,19 @@ const _nav = [
       //   name: 'Tooltips',
       //   to: '/base/tooltips',
       // },
+    ],
+  },
+  {
+    component: CNavGroup,
+    name: 'Features',
+    to: '/features',
+    icon: <CIcon icon={cilFeaturedPlaylist} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'Features',
+        to: '/features/',
+      },
     ],
   },
   // {

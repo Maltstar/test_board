@@ -60,6 +60,9 @@ const Vermehrungsmaterial = React.lazy(
 )
 
 const Mitglieder = React.lazy(() => import('./views/verein/mitglieder/Mitglieder'))
+// features
+
+const Features =  React.lazy(() => import('./views/features/Features'))
 
 const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 
@@ -125,6 +128,11 @@ const routes = [
   },
 
   { path: '/verein/mitglieder', name: 'Mitglieder', element: Mitglieder },
+
+  { path: '/features', name: 'Features', element: Features, exact: true },
+  { path: '/features/features', name: 'Features', element: Features, exact: true },
+  // { path: '/verein/info', name: 'Info', element: Info },
+  
   // {
   //   path: '/verein/partners/vermehrungsmaterial',
   //   name: 'Vermehrungsmaterial',
