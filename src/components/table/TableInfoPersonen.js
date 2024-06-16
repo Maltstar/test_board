@@ -8,6 +8,7 @@ import { CButton,CNav, CNavItem } from "@coreui/react";
 import {
   flexRender,
   getCoreRowModel,
+  getPaginationRowModel,
   useReactTable,
 } from "@tanstack/react-table";
 import {  columns } from "./columns_personen";
@@ -15,13 +16,20 @@ import  FooterCell from "./FooterCell";
 import useTableDb from './useTabledb';
 import useReadDataInfo from '../hooks/supabase/ApiSupabase';
 
+export const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min
+
+
 export const TableInfoPersonen = () => {
   const { data: originalData, isValidating, addRow, updateRow, deleteRow } = useTableDb('info_personen');
   const [data, setData] = useState([]);
   const [editedRows, setEditedRows] = useState({});
   const [validRows, setValidRows] = useState({});
   const [id,SetId] = useState(originalData.length + 1)
-  const getRndInteger = (min, max) => Math.floor(Math.random() * (max - min + 1) ) + min
+
+  const [pagination, setPagination] = useState({
+    pageIndex: 0, //initial page index
+    pageSize: 10, //default page size
+  });
   
   //const {dataUpdated, isValidatingUpdated} = useReadDataInfo('info_personen')
 
@@ -59,6 +67,12 @@ console.log('TableInfoPersonen originalData before use effect id',id);
     columns,
     //columnspersonen,
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    onPaginationChange: setPagination, //update the pagination state when internal APIs mutate the pagination state
+    state: {
+        //...
+        pagination,
+    },
     enableRowSelection: true,
     meta: {
       editedRows,
@@ -233,7 +247,13 @@ console.log('TableInfoPersonen originalData before use effect id',id);
             </tr>
             </tfoot>
         </table>
+            <div className="alert alert-info" role="alert">
+                {id-1} juristischen Personen registriert
+            </div>
         </div>
+
+        
+
      
       {/* <pre>{JSON.stringify(data, null, "\t")}</pre> */}
     </article>
